@@ -43,12 +43,7 @@ module.exports.addFlashcard = (req, res) => {
 }
 
 module.exports.getFlashcard = (req, res) => {
-    Deck.find({"flashcards.word" : req.params.flashcards.word})
-    .then((result)=>{
-        res.json(result)
-    })
-    .catch((err)=> {
-        console.log(err)
-        res.status(400).json(err)
-    })
+    Deck.find({_id: req.params.id}, {"flashcards": {$elemMatch: {"_id": req.params.flashcardId}}})
+        .then(found => res.json(found))
+        .catch(err => res.json(err))
 }

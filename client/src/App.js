@@ -19,7 +19,7 @@ function App() {
           <Route path="/deckForm" element={<DeckForm />} />
           <Route path="/cardForm" element={<CardForm />} />
           <Route path="/deck/:id" element={<ViewDeck />} />
-          <Route path="/card/:id" element={<ViewCard />} />
+          <Route path="/deck/:id/:flashcardId" element={<ViewCard />} />
           <Route path="/edit/:id" element={<EditForm />} />
         </Routes>
       </BrowserRouter>

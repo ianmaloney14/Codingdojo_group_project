@@ -10,4 +10,5 @@ module.exports = (app) => {
     app.delete("/deck/:id/delete", DeckController.deleteDeck)
     app.put("/deck/:id/delete/:flashcardId", DeckController.deleteFlashcard)
     app.put("/deck/:id/add", DeckController.addFlashcard)
+    app.get("/deck/:id/:flashcardId", DeckController.getFlashcard)
 }

@@ -1,12 +1,28 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 
 
 const DeckList = (props) => {
+    const {id, flashcardId} = useParams()
     const [ decks, setDecks ] = useState([]);
     const navigate = useNavigate();
-
+    // const [randomCard, setRandomCard] = useState([])
+    const [ flashcard, setFlashcard] = useState({})
+    const [ flashcards, setFlashcards] = useState([])
+    // const chooseCard = () => {
+    //     axios.get(`http://localhost:8000/deck/${id}`)
+    //     .then((res)=>{
+    //             setDecks(res.data)
+    //             setFlashcards(res.data.flashcards)
+    //             const len = flashcards.length
+    //             let nextCard = flashcards[Math.floor(Math.random() * len)]
+                
+    //         setRandomCard(nextCard)
+    //     .catch((err)=>{
+    //         console.log(err)
+    //     })
+    // })}
     useEffect(() => {
         axios.get("http://localhost:8000/decks")
             .then(res => setDecks(res.data))
