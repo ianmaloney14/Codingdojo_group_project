@@ -30,19 +30,19 @@ const DeckList = (props) => {
     }, [])
     
     return (
-        <div>
+        <div className="p-3 bg-dark text-white" style={{height:"100vh", width:"100%"}}>
             <h1>Deck List</h1>
-            <div>
+            <div className="col col-6">
                 {
                     decks.map((deck, index)=> {
                         return(
-                            <div className='col col-6 mt-3 px-2' key={index}>
+                            <div className='col col-6 mt-3 mx-auto px-2 view-edit-card' key={index}>
                                 {/* icon for the deck */}
                                 <Link to={`/deck/${deck._id}`}>{deck.name}</Link>
                                 <div>
                                     {/* <select> */}
-                                        <a><Link to={`/edit/${deck._id}`}>Edit Deck</Link></a> |
-                                        <a> <Link to={`/deck/${deck._id}`}>View Deck</Link></a>
+                                        <a><Link to={`/edit/${deck._id}`}>Edit Deck</Link></a>
+                                        {/* <a> <Link to={`/deck/${deck._id}`}>View Deck</Link></a> */}
                                         {/* <option>
                                             <Link to={`/deck/${deck._id}/delete`}>Delete Deck</Link>
                                         </option> */}

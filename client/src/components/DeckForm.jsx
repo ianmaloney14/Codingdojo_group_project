@@ -18,18 +18,18 @@ const DeckForm = (props) => {
         });
     }
     return (
-        <>
+        <div className="p-3 bg-dark text-white" style={{height:"100vh", width:"100%"}}>
         <form onSubmit={ submitHandler }>
             <div>
-                <label>Name</label>
+                <label>Name: </label>
                 <input type="text" value={name} onChange={ (e) => setName(e.target.value) } />
                 {errors.name ? <p>{errors.name.message}</p> : null}
             </div>
             <div>
-                <input type="submit" value="Submit" />
+                <input className="bg-info" type="submit" value="Submit" />
             </div>
         </form>
-        </>
+        </div>
     )
 }
 export default DeckForm

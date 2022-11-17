@@ -52,7 +52,8 @@ const ViewCard = (props) => {
             // }
             console.log(nextCard._id);
             console.log(flashcardIdCopy);
-            axios.get(`http://localhost:8000/deck/${id}/${flashcardIdCopy}`)         .then((res)=>{
+            axios.get(`http://localhost:8000/deck/${id}/${flashcardIdCopy}`)         
+            .then((res)=>{
                 setFlashcard(res.data[0].flashcards[0])
             }).catch((err)=>{
                 console.log(err)
@@ -79,7 +80,7 @@ const ViewCard = (props) => {
         })
     }, [])
     return (
-        <div>
+        <div className="p-3 mb-2 bg-dark text-white" style={{height:"100vh", width:"100%"}}>
             <h1>{flashcard.word}</h1>
             {
                 show &&

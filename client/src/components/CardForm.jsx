@@ -42,11 +42,10 @@ const CardForm = (props) => {
     };
 
     return (
-        <div className="container">
-        
+        <div className="p-3 bg-dark text-white container col-4 d-flex align-items-center justify-content-center"  style={{height:"100vh", width:"100%"}}>
         <form onSubmit={handleSubmit}>
             <div className="form-group">
-            <label className='form-label'>Deck: </label>
+            <label className='form-label'><h2 className="mt-3">Deck: </h2></label>
                     <select value={deck} className='form-control' onChange={(e) => setDeck(e.target.value)}>
                         <option value="" ></option>
                         {decks.map((deck, index)=> {

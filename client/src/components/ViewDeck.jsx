@@ -23,7 +23,7 @@ const ViewDeck = (props) => {
         })
     }, [])
     return (
-        <div>
+        <div className="p-3 mb-2 bg-dark text-white" style={{height:"100vh", width:"100%"}}>
             <h1>{deck.name}</h1>
             <button className='btn btn-danger' onClick={(e)=>deleteHandler(deck._id)}>Delete Deck</button>
             {

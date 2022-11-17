@@ -90,6 +90,7 @@ html {
   list-style: none;
 
   padding: 1.8rem;
+  margin-bottom: 0px;
 
   border-bottom: 2px solid black;
 }
@@ -106,5 +107,7 @@ html {
 
 .view-edit-card {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 3.6rem;
 }

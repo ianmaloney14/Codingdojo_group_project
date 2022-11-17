@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <>
         <header>
-            <nav>
+            <nav className="bg-warning bg-gradient">
                 <ul className='nav-list'>
                     <li className='nav-list-items'><NavLink to="/">View Decks</NavLink></li>
                     <li className='nav-list-items'><NavLink to="/deckForm">Add Deck</NavLink></li>

@@ -47,7 +47,7 @@ const EditCard = (props) => {
         })
     }
     return (
-        <div>
+        <div className="p-3 mb-2 bg-dark text-white" style={{height:"100vh", width:"100%"}}>
             <form className="col-6 mx-auto" onSubmit={updateHandler}>
                 <p>
                     <label className='form-label'>Word: </label>
