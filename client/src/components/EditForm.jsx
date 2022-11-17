@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 const EditForm = (props) => {
-    const { deck, setDeck } = props
     const {id} = useParams()
-    const [ name, setName ] = useState('')
+
+    const { deck, setDeck } = props
     const [ flashcards, setFlashcards ] = useState([])
+    const [ name, setName ] = useState('')
     const [errors, setErrors ] = useState({})
     const navigate = useNavigate()
     useEffect(() => {
-        axios.get(`http://localhost:8000/deck${id}`)
+        axios.get(`http://localhost:8000/deck/${id}`)
         .then((res)=>{
             console.log(res)
             setName(res.data.name)
@@ -42,16 +43,17 @@ const EditForm = (props) => {
                     <input value={name} className='form-control' type='text' onChange={(e)=> setName(e.target.value)}/>
                     { errors.name ? <span className='text-danger'>{errors.name}</span> :null}
                 </p>
-                <p>
+                <div>
                     <label className='form-label'>Flashcards: </label>
                     {flashcards.map((flashcard, index) => {
                         return(
-                            <div>
+                            <div key={flashcard._id}>
                                 <p>{flashcard.word}</p>
                                 <p>{flashcard.meaning}</p>
                             </div>
                     )})}
-                </p>
+                </div>
+                <input type="submit" className='btn btn-success' value="Update deck"></input>
             </form>
         </div>
     )

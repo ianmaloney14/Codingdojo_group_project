@@ -2,7 +2,6 @@ const DeckController = require("../controllers/deck.controller")
 
 module.exports = (app) => {
     app.post("/deck/create", DeckController.createDeck)
-    // app.post("/card/create", DeckController.createCard)
     app.get("/decks", DeckController.getAllDecks)
     app.get("/deck/:id", DeckController.getDeck)
     app.get("/card/:id", DeckController.getFlashcard)
@@ -11,4 +10,5 @@ module.exports = (app) => {
     app.put("/deck/:id/delete/:flashcardId", DeckController.deleteFlashcard)
     app.put("/deck/:id/add", DeckController.addFlashcard)
     app.get("/deck/:id/:flashcardId", DeckController.getFlashcard)
+    app.put("/edit/:id/:flashcardId", DeckController.updateCard)
 }

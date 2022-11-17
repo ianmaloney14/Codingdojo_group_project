@@ -24,6 +24,15 @@ module.exports.updateDeck = (req, res) => {
         .catch(err => res.json(err))
 }
 
+module.exports.updateCard = (req, res) => {
+    console.log("req.body:_________", req.body)
+    console.log("req.params:_________", req.params)
+    Deck.findOneAndUpdate({_id: req.params.id}, { $set: { "flashcards.$[el].word" : req.body.word, "flashcards.$[el].meaning" : req.body.meaning } }, { arrayFilters: [{ "el._id": req.params.flashcardId}], new:true})
+        .then(updatedCard => res.json(updatedCard))
+        .catch(err => res.json(err))
+}
+
+
 module.exports.deleteDeck = (req, res) => {
     Deck.deleteOne({_id: req.params.id})
         .then(deleteConfirmation => res.json(deleteConfirmation))
@@ -44,6 +53,7 @@ module.exports.addFlashcard = (req, res) => {
 
 module.exports.getFlashcard = (req, res) => {
     Deck.find({_id: req.params.id}, {"flashcards": {$elemMatch: {"_id": req.params.flashcardId}}})
+    // Deck.find({"flashcards" : req.params.flashcardId})
         .then(found => res.json(found))
         .catch(err => res.json(err))
 }

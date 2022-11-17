@@ -103,3 +103,8 @@ html {
   justify-content: space-between;
   align-items: center;
 }
+
+.view-edit-card {
+  display: flex;
+  align-items: center;
+}

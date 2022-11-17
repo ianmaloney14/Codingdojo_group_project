@@ -32,7 +32,10 @@ const ViewDeck = (props) => {
                         <div key={index} className=" container flashcard">
                             <div><p>{flashcard.word}</p></div>
                             <div><p>{flashcard.meaning}</p></div>
-                            <NavLink to={`/deck/${deck._id}/${flashcard._id}`}>View Card</NavLink>
+                            <div className='view-edit-card'>
+                                <NavLink to={`/deck/${deck._id}/${flashcard._id}`}>View Card </NavLink>| 
+                                <NavLink to={`/edit/${deck._id}/${flashcard._id}`}> Edit Card</NavLink>
+                            </div>
                         </div>
                     )
                 })
