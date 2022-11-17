@@ -47,7 +47,7 @@ const EditForm = (props) => {
                     <label className='form-label'>Flashcards: </label>
                     {flashcards.map((flashcard, index) => {
                         return(
-                            <div key={flashcard._id}>
+                            <div key={flashcard._id} className="flashcard">
                                 <p>{flashcard.word}</p>
                                 <p>{flashcard.meaning}</p>
                             </div>
